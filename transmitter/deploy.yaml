@@ -23,7 +23,7 @@ spec:
         volumeMounts:
             - mountPath: /mnt/entrypoint
               name: transmitter
-    volumes:
-    - name: transmitter
-      configMap:
-        name: transmitter
+      volumes:
+      - name: transmitter
+        configMap:
+          name: transmitter
