@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ds-generator
+spec:
+  selector:
+    matchLabels:
+      app: ds-generator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ds-generator
+    spec:
+      containers:
+      - name: ds-generator
+        image: daniilzhyrov/kursach-ds-gen:latest
+        # volumeMounts:
+        # - mountPath: /mnt/data
+        #   name: ds-generator
+      # volumes:
+      # - name: ds-generator
+      #   configMap:
+      #     name: ds-generator
+

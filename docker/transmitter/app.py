@@ -10,12 +10,12 @@ mongo_database_name = os.environ["MONGO_DATABASE"] if "MONGO_DATABASE" in os.env
 mongo_client = pymongo.MongoClient(mongo_address)
 mongo_db = mongo_client[mongo_database_name]
 
-@app.route('/')
-def hello_world():
+@app.route('/', methods = ['POST'])
+def insert():
     mycol = mongo_db["flights"]
     mydict = { "name": "John", "address": "Highway 37" }
     x = mycol.insert_one(mydict)
-    return 'Hello, World!'
+    return 'OK', 201
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
