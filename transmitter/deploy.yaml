@@ -7,24 +7,19 @@ spec:
   selector:
     matchLabels:
       app: transmitter
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: transmitter
-    spec:
-      containers:
-      - name: transmitter
-        image: python:3
-        command: ["python3"]
-        args:
-          - "/mnt/entrypoint/main.py"
-        ports:
-        - containerPort: 80
-        volumeMounts:
-            - mountPath: /mnt/entrypoint
-              name: transmitter
-      volumes:
-      - name: transmitter
-        configMap:
+  containers:
+  - name: transmitter
+    image: python:3
+    command: ["python3"]
+    args:
+      - "/mnt/entrypoint/main.py"
+    ports:
+    - containerPort: 80
+    volumeMounts:
+        - mountPath: /mnt/entrypoint
           name: transmitter
+  volumes:
+  - name: transmitter
+    configMap:
+      name: transmitter
+      
