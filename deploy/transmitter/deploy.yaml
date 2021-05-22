@@ -17,7 +17,7 @@ spec:
         image: daniilzhyrov/flask:latest
         command: ["python3"]
         args:
-          - "/mnt/entrypoint/main.py"
+          - "/mnt/entrypoint/app.py"
         ports:
         - containerPort: 80
         volumeMounts:

@@ -9,4 +9,4 @@ resources:
 configMapGenerator:
 - name: transmitter
   files:
-  - main.py
+  - app.py
