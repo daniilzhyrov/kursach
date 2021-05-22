@@ -6,7 +6,3 @@ commonLabels:
 resources:
 - service.yaml
 - deploy.yaml
-configMapGenerator:
-- name: transmitter
-  files:
-  - app.py
