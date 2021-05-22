@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: transmitter
-        image: python:rc-alpine
+        image: daniilzhyrov/flask:latest
         command: ["python3"]
         args:
           - "/mnt/entrypoint/main.py"
