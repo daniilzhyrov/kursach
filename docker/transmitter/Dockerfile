@@ -6,6 +6,6 @@ RUN pip3 install pymongo
 RUN mkdir /entrypoint
 WORKDIR /entrypoint
 
-COPY ./app .
+COPY ./app.py .
 
 ENTRYPOINT python3 app.py

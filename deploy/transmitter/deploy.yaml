@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: transmitter
-        image: daniilzhyrov/flask:latest
+        image: daniilzhyrov/kursach-transmitter:latest
         ports:
         - containerPort: 5000
-        
+
