@@ -16,6 +16,6 @@ then
     exit 1
 fi
 
-kubectl wait --for=condition=ready pod -n $CFG_SVR_NAMESPACE -l role=cfg-svr
+kubectl wait --for=condition=ready pod -n $CFG_SVR_NAMESPACE --all
 
 mongos --configdb configReplSet/$CFG_SVR_NAME-0.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017,$CFG_SVR_NAME-1.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017,$CFG_SVR_NAME-2.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017

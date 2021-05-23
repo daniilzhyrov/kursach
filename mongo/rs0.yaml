@@ -22,6 +22,8 @@ spec:
             - "--replSet"
             - rs0
             - "--bind_ip_all"
+            - "--port"
+            - "27017"
           ports:
             - containerPort: 27017
           volumeMounts:
