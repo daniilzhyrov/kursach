@@ -19,7 +19,7 @@ spec:
           command:
           - "/bin/bash"
           - sleep
-          - 480
+          - "480"
           # - source
           # - /mnt/entrypoint/entrypoint.sh
           volumeMounts:
