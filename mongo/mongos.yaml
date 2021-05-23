@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongos
+spec:
+  serviceName: "mongos"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: mongos
+        environment: test
+    spec:
+      serviceAccountName: mongodb
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongo
+          image: mongo
+          command:
+          - source
+          - /mnt/entrypoint/entrypoint.sh
+          volumeMounts:
+            - mountPath: /mnt/entrypoint
+              name: mongos-entrypoint
+          ports:
+            - containerPort: 27017
+      volumes:
+        - name: mongos-entrypoint
+          configMap:
+            name: mongos-entrypoint

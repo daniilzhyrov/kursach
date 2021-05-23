@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: rs1
+  name: cfg-svr
 spec:
-  serviceName: "rs1"
+  serviceName: "cfg-svr"
   replicas: 3
   template:
     metadata:
       labels:
-        role: rs1
+        role: cfg-svr
         environment: test
     spec:
       serviceAccountName: mongodb
@@ -18,8 +18,9 @@ spec:
           image: mongo
           command:
             - mongod
+            - "--configsvr"
             - "--replSet"
-            - rs1
+            - configReplSet
             - "--bind_ip_all"
           ports:
             - containerPort: 27017
@@ -34,7 +35,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: MONGO_SIDECAR_POD_LABELS
-              value: "role=rs1,environment=test"
+              value: "role=cfg-svr,environment=test"
             - name: KUBERNETES_MONGO_SERVICE_NAME
               value: mongo
   volumeClaimTemplates:
@@ -44,4 +45,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 5Gi
+          storage: 2Gi

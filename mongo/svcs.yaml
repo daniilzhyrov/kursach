@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: rs0
   labels:
-    name: rs0
+    role: rs0
 spec:
   ports:
   - port: 27017
@@ -17,7 +17,7 @@ kind: Service
 metadata:
   name: rs1
   labels:
-    name: rs1
+    role: rs1
 spec:
   ports:
   - port: 27017
@@ -25,3 +25,17 @@ spec:
   clusterIP: None
   selector:
     role: rs1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cfg-svr
+  labels:
+    role: cfg-svr
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  clusterIP: None
+  selector:
+    role: cfg-svr

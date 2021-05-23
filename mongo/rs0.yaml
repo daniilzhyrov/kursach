@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: rs0
 spec:
-  serviceName: "mongo"
+  serviceName: "rs0"
   replicas: 3
   template:
     metadata:
@@ -44,4 +44,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 10Gi
+          storage: 5Gi
