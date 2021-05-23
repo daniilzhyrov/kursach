@@ -18,6 +18,7 @@ spec:
           image: mongo
           command:
             - mongod
+            - "--shardsvr"
             - "--replSet"
             - rs0
             - "--bind_ip_all"
