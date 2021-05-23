@@ -11,7 +11,7 @@ spec:
           image: daniilzhyrov/kube-mongo:latest
           imagePullPolicy: IfNotPresent
           command:
-          - source
+          - "/bin/bash"
           - /mnt/entrypoint/entrypoint.sh
           volumeMounts:
             - mountPath: /mnt/entrypoint
