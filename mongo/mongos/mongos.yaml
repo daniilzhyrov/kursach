@@ -18,8 +18,7 @@ spec:
           image: mongo
           command:
           - "/bin/bash"
-          - sleep
-          - "480"
+          - "sleep 6m"
           # - source
           # - /mnt/entrypoint/entrypoint.sh
           volumeMounts:
