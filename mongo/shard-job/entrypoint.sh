@@ -9,3 +9,4 @@ sh.enableSharding("$SHARD_DATABASE_NAME")
 use $SHARD_DATABASE_NAME
 
 db.$SHARD_DATABASE_NAME.createIndex( { number : 1 } )
+sh.shardCollection("$SHARD_DATABASE_NAME.$SHARD_COLLECTION_NAME", {departure_delay : "1"})

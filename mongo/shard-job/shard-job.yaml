@@ -29,6 +29,8 @@ spec:
             value: mongos
           - name: SHARD_DATABASE_NAME
             value: flights
+          - name: SHARD_COLLECTION_NAME
+            value: flights
       volumes:
         - name: shard-job-entrypoint
           configMap:

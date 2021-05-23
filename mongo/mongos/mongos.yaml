@@ -18,8 +18,10 @@ spec:
           image: mongo
           command:
           - "/bin/bash"
-          - source
-          - /mnt/entrypoint/entrypoint.sh
+          - sleep
+          - 480
+          # - source
+          # - /mnt/entrypoint/entrypoint.sh
           volumeMounts:
             - mountPath: /mnt/entrypoint
               name: mongos-entrypoint
@@ -35,6 +37,6 @@ spec:
           ports:
             - containerPort: 27017
       volumes:
-        - name: mongos-entrypoint
-          configMap:
-            name: mongos-entrypoint
+      - name: mongos-entrypoint
+        configMap:
+          name: mongos-entrypoint
