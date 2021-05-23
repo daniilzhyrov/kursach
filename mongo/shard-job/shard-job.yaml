@@ -31,6 +31,14 @@ spec:
             value: flights
           - name: SHARD_COLLECTION_NAME
             value: flights
+          - name: CFG_SVR_NAME
+            value: cfg-svr
+          - name: CFG_SVR_SVC
+            value: cfg-svr
+          - name: CFG_SVR_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
       volumes:
         - name: shard-job-entrypoint
           configMap:
