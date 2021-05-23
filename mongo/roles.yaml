@@ -4,8 +4,8 @@ metadata:
   name: pod-reader
 rules:
 - apiGroups: [""]
-  resources: ["pods", "statefulsets"]
-  verbs: ["get", "watch", "list", "rollout"]
+  resources: ["pods", "statefulsets/status"]
+  verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
