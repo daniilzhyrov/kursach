@@ -18,11 +18,10 @@ spec:
           image: mongo
           command:
           - "/bin/bash"
-          - source
           - /mnt/entrypoint/entrypoint.sh
           volumeMounts:
-            - mountPath: /mnt/entrypoint
-              name: mongos-entrypoint
+          - mountPath: /mnt/entrypoint
+            name: mongos-entrypoint
           env:
           - name: CFG_SVR_NAME
             value: cfg-svr
