@@ -4,12 +4,8 @@ namespace: kursach
 commonLabels:
   app: mongo
 resources:
-- svc-acc.yaml
-- roles.yaml
-- svcs.yaml
-- rs0.yaml
-- rs1.yaml
-- cfg-svr.yaml
-bases:
-- mongos
-#- shard-job
+- mongos.yaml
+configMapGenerator:
+- name: mongos-entrypoint
+  files:
+    - entrypoint.sh

@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: mongos
 spec:
@@ -22,6 +22,15 @@ spec:
           volumeMounts:
             - mountPath: /mnt/entrypoint
               name: mongos-entrypoint
+          env:
+          - name: CFG_SVR_NAME
+            value: cfg-svr
+          - name: CFG_SVR_SVC
+            value: cfg-svr
+          - name: CFG_SVR_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
           ports:
             - containerPort: 27017
       volumes:

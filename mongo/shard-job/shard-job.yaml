@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-shard
+spec:
+  template:
+    spec:
+      serviceAccountName: mongodb
+      containers:
+        - name: script
+          image: alpine:latest
+          imagePullPolicy: IfNotPresent
+          command:
+          - source
+          - /mnt/entrypoint/entrypoint.sh
+          volumeMounts:
+            - mountPath: /mnt/entrypoint
+              name: shard-job-entrypoint
+          env:
+          - name: MONGOS_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: MONGOS_NAME
+            value: mongos
+      volumes:
+        - name: shard-job-entrypoint
+          configMap:
+            name: shard-job-entrypoint
+      restartPolicy: Never
