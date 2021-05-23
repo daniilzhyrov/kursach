@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mongos
 spec:
-  serviceName: "mongos"
+  #serviceName: "mongos"
   replicas: 1
   template:
     metadata:
