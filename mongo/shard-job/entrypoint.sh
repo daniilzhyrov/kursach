@@ -1,4 +1,4 @@
-kubectl wait --for=condition=ready pod -n $MONGOS_NAMESPACE -l role=mongos
+kubectl rollout status --watch --timeout=600s statefulset/cfg-svr -n kursach
 
 mongo --host $MONGOS_SVC_NAME.$MONGOS_NAMESPACE.svc.cluster.local
 

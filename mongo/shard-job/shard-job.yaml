@@ -8,7 +8,7 @@ spec:
       serviceAccountName: mongodb
       containers:
         - name: script
-          image: mongo
+          image: daniilzhyrov/kube-mongo:latest
           imagePullPolicy: IfNotPresent
           command:
           - source

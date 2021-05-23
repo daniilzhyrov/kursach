@@ -3,7 +3,7 @@ kind: Role
 metadata:
   name: pod-reader
 rules:
-- apiGroups: ["apps"]
+- apiGroups: ["", "apps"]
   resources: ["pods", "statefulsets", "statefulsets/status"]
   verbs: ["get", "watch", "list"]
 ---
