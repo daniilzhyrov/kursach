@@ -12,4 +12,4 @@ resources:
 - cfg-svr.yaml
 bases:
 - mongos
-- shard-job
+# - shard-job
