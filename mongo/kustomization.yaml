@@ -7,4 +7,5 @@ resources:
 - svc-acc.yaml
 - roles.yaml
 - svc.yaml
-- sts.yaml
+- rs0.yaml
+- rs1.yaml
