@@ -18,11 +18,11 @@ fi
 
 kubectl rollout status --watch --timeout=600s statefulset/cfg-svr -n kursach
 
-printf 'rs.initiate( { _id: "configReplSet", configsvr: true, members: [
+echo "rs.initiate( { _id: "configReplSet", configsvr: true, members: [
     { _id: 0, host: "$CFG_SVR_NAME-0.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017" },
     { _id: 1, host: "$CFG_SVR_NAME-1.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017" },
     { _id: 2, host: "$CFG_SVR_NAME-2.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017" },
-]})\nexit' | mongo --host $CFG_SVR_NAME-0.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local
+]})\nexit" | mongo --host $CFG_SVR_NAME-0.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local
 
 
 mongos --port 27017 --bind_ip_all --configdb configReplSet/$CFG_SVR_NAME-0.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017,$CFG_SVR_NAME-1.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017,$CFG_SVR_NAME-2.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017 
