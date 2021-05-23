@@ -13,26 +13,35 @@ spec:
     spec:
       serviceAccountName: mongodb
       terminationGracePeriodSeconds: 10
+      initContainers:
+      - name: cfg-svr-rs-create
+        image: daniilzhyrov/kube-mongo:latest
+        command:
+        - "/bin/bash"
+        - /mnt/entrypoint/entrypoint.sh
+        volumeMounts:
+        - mountPath: /mnt/entrypoint
+          name: mongos-entrypoint
       containers:
-        - name: mongo
-          image: daniilzhyrov/kube-mongo:latest
-          command:
-          - "/bin/bash"
-          - /mnt/entrypoint/entrypoint.sh
-          volumeMounts:
-          - mountPath: /mnt/entrypoint
-            name: mongos-entrypoint
-          env:
-          - name: CFG_SVR_NAME
-            value: cfg-svr
-          - name: CFG_SVR_SVC
-            value: cfg-svr
-          - name: CFG_SVR_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
-          ports:
-            - containerPort: 27017
+      - name: mongo
+        image: mongo
+        command:
+        - "/bin/bash"
+        - /mnt/entrypoint/entrypoint.sh
+        volumeMounts:
+        - mountPath: /mnt/entrypoint
+          name: mongos-entrypoint
+        env:
+        - name: CFG_SVR_NAME
+          value: cfg-svr
+        - name: CFG_SVR_SVC
+          value: cfg-svr
+        - name: CFG_SVR_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        ports:
+          - containerPort: 27017
       volumes:
       - name: mongos-entrypoint
         configMap:

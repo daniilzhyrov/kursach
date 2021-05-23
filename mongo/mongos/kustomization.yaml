@@ -8,4 +8,5 @@ resources:
 configMapGenerator:
 - name: mongos-entrypoint
   files:
-    - entrypoint.sh
+  - cfg_svr_setup.sh
+  - mongos_start.sh

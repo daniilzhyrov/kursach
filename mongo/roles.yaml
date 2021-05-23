@@ -4,7 +4,7 @@ metadata:
   name: pod-reader
 rules:
 - apiGroups: ["", "apps"]
-  resources: ["pods", "statefulsets", "statefulsets/status"]
+  resources: ["pods", "statefulsets", "statefulsets/status", "deployments", "deployments/status"]
   verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
