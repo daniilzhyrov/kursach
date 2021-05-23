@@ -48,7 +48,7 @@ metadata:
     name: mongos
 spec:
   selector:
-    name: mongos
+    role: mongos
   ports:
   - protocol: TCP
     port: 27017
