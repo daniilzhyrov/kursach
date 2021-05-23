@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: mongo
-          image: mongo
+          image: daniilzhyrov/mongos:latest
           command:
           - "/bin/bash"
           - /mnt/entrypoint/entrypoint.sh
