@@ -39,3 +39,18 @@ spec:
   clusterIP: None
   selector:
     role: cfg-svr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongos
+  labels:
+    name: mongos
+spec:
+  selector:
+    name: mongos
+  ports:
+  - protocol: TCP
+    port: 27017
+    targetPort: 27017
+  type: NodePort

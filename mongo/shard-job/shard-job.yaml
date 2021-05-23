@@ -8,7 +8,7 @@ spec:
       serviceAccountName: mongodb
       containers:
         - name: script
-          image: alpine:latest
+          image: mongo
           imagePullPolicy: IfNotPresent
           command:
           - source
@@ -21,8 +21,14 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
-          - name: MONGOS_NAME
+          - name: RS_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: MONGOS_SVC_NAME
             value: mongos
+          - name: SHARD_DATABASE_NAME
+            value: flights
       volumes:
         - name: shard-job-entrypoint
           configMap:
