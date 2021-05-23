@@ -18,6 +18,8 @@ fi
 
 kubectl rollout status --watch --timeout=600s statefulset/cfg-svr -n kursach
 
+sleep 2
+
 printf "rs.initiate( { _id: \"configReplSet\", configsvr: true, members: [
     { _id: 0, host: \"$CFG_SVR_NAME-0.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017\" },
     { _id: 1, host: \"$CFG_SVR_NAME-1.$CFG_SVR_SVC.$CFG_SVR_NAMESPACE.svc.cluster.local:27017\" },
