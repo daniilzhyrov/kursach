@@ -18,7 +18,7 @@ spec:
         image: daniilzhyrov/kube-mongo:latest
         command:
         - "/bin/bash"
-        - /mnt/entrypoint/entrypoint.sh
+        - /mnt/entrypoint/cfg_svr_setup.sh
         volumeMounts:
         - mountPath: /mnt/entrypoint
           name: mongos-entrypoint
@@ -27,7 +27,7 @@ spec:
         image: mongo
         command:
         - "/bin/bash"
-        - /mnt/entrypoint/entrypoint.sh
+        - /mnt/entrypoint/mongos_start.sh
         volumeMounts:
         - mountPath: /mnt/entrypoint
           name: mongos-entrypoint
