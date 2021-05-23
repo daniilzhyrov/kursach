@@ -1,4 +1,4 @@
-apiVersion: mongodb.mongodb.com/v1
+apiVersion: mongodb.com/v1
 kind: MongoDB
 metadata:
   name: flights-db
