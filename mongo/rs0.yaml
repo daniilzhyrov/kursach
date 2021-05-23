@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mongo
+  name: rs0
 spec:
   serviceName: "mongo"
   replicas: 3
   template:
     metadata:
       labels:
-        role: mongo
+        role: rs0
         environment: test
     spec:
       serviceAccountName: mongodb
@@ -34,7 +34,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: MONGO_SIDECAR_POD_LABELS
-              value: "role=mongo,environment=test"
+              value: "role=rs0,environment=test"
             - name: KUBERNETES_MONGO_SERVICE_NAME
               value: mongo
   volumeClaimTemplates:
