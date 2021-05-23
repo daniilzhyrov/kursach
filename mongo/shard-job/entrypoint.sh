@@ -1,5 +1,7 @@
 kubectl rollout status --watch --timeout=600s statefulset/cfg-svr -n kursach
 
+sleep 2
+
 mongo --host $MONGOS_SVC_NAME.$MONGOS_NAMESPACE.svc.cluster.local
 
 rs.initiate( { _id: "configReplSet", configsvr: true, members: [
