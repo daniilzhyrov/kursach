@@ -39,7 +39,7 @@ spec:
             - name: MONGO_SIDECAR_POD_LABELS
               value: "role=rs1,environment=test"
             - name: KUBERNETES_MONGO_SERVICE_NAME
-              value: mongo
+              value: rs1
   volumeClaimTemplates:
   - metadata:
       name: mongo-persistent-storage
