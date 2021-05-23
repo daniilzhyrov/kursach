@@ -9,6 +9,7 @@ resources:
 - svcs.yaml
 - rs0.yaml
 - rs1.yaml
+- cfg-svr.yaml
 configMapGenerator:
 - name: mongos-entrypoint
   files:
