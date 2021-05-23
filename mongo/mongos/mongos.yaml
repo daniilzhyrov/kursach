@@ -17,7 +17,7 @@ spec:
         - name: mongo
           image: mongo
           command:
-          - "/bin/bash"
+          # - "/bin/bash"
           - "sleep 6m"
           # - source
           # - /mnt/entrypoint/entrypoint.sh
