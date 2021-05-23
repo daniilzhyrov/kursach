@@ -17,7 +17,6 @@ spec:
         - name: mongo
           image: mongo
           command:
-          - "/bin/bash"
           - ls
           - /mnt/entrypoint
           volumeMounts:
