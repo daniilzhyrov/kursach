@@ -4,6 +4,7 @@ namespace: kursach
 commonLabels:
   app: mongo
 resources:
+- crds.yaml
 - svc-acc.yaml
 - roles.yaml
 - crbs.yaml
