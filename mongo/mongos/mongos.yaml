@@ -18,8 +18,8 @@ spec:
           image: mongo
           command:
           - "/bin/bash"
-          - source
-          - /mnt/entrypoint/entrypoint.sh
+          - ls
+          - /mnt/entrypoint
           volumeMounts:
             - mountPath: /mnt/entrypoint
               name: mongos-entrypoint
