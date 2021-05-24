@@ -7,5 +7,5 @@ sh.addShard(\"rs1/rs1-0.rs1.$RS_NAMESPACE.svc.cluster.local:27017\")
 sh.enableSharding(\"$SHARD_DATABASE_NAME\")
 use $SHARD_DATABASE_NAME
 db.$SHARD_COLLECTION_NAME.createIndex( { departure_delay : 1 } )
-sh.shardCollection(\"$SHARD_DATABASE_NAME.$SHARD_COLLECTION_NAME\", {departure_delay : hashed})
+sh.shardCollection(\"$SHARD_DATABASE_NAME.$SHARD_COLLECTION_NAME\", {departure_delay : \"hashed\"})
 exit" | mongo --host $MONGOS_SVC_NAME.$MONGOS_NAMESPACE.svc.cluster.local
